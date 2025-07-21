@@ -1,11 +1,22 @@
 [
   {
-    "name": "COMING SOON"
-   
-   }
-
-  
-  
-  ]
-  
-
+    "name": "Fitture Landing Page",
+    "desc": "FITTURE is a tech-fashion concept I designed and built as a portfolio project. It’s a virtual fitting room solution that lets users preview how clothing would look on them before making a purchase — all through an interactive digital experience.",
+    "image": "image_filename_1",
+    "category": "basicweb",
+    "links": {
+      "view": "https://fitture.vercel.app/",
+      "code": "https://github.com/rizkitaqi/fitture"
+    }
+  },
+  {
+    "name": "Daily Random Tarot",
+    "desc": "The Daily Random Tarot is a fun and absurd web project I created to explore creative front-end development while expressing humor and modern internet culture. The concept: a daily tarot card that delivers random, Gen Z-style wisdom, packed with relatable nonsense and oddly specific truths — just what you didn't know you needed today.",
+    "image": "image_filename_2",
+    "category": "basicweb",
+    "links": {
+      "view": "https://tarotrandom.netlify.app/",
+      "code": "#"
+    }
+  }
+]
