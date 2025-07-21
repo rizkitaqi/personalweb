@@ -37,24 +37,42 @@ $(document).ready(function () {
         }, 500, 'linear')
     });
 
-    // <!-- emailjs to mail contact form data -->
-    $("#contact-form").submit(function (event) {
-        emailjs.init("XnwDu7UpjifsgM4W0");
 
-        emailjs.sendForm('contact_service', 'template_contact', '#contact-form')
-            .then(function (response) {
-                console.log('SUCCESS!', response.status, response.text);
-                document.getElementById("contact-form").reset();
-                alert("Form Submitted Successfully");
-            }, function (error) {
-                console.log('FAILED...', error);
-                alert("Form Submission Failed! Try Again");
-            });
-        event.preventDefault();
+    
     });
     // <!-- emailjs to mail contact form data -->
 
-});
+    $(document).ready(function() {
+        emailjs.init("XnwDu7UpjifsgM4W0");
+    });
+    
+    $("#contact-form").submit(function (event) {
+        // Prevent default form submission pertama kali
+        event.preventDefault();
+        
+        // Tampilkan loading indicator
+        const submitBtn = $(this).find('button[type="submit"]');
+        const originalHtml = submitBtn.html();
+        submitBtn.prop('disabled', true).html('Sending... <i class="fa fa-spinner fa-spin"></i>');
+        
+        // Kirim form menggunakan EmailJS
+        emailjs.sendForm(' service_mt9b1by', 'template_contact', this)
+            .then(function (response) {
+                console.log('SUCCESS!', response.status, response.text);
+                document.getElementById("contact-form").reset();
+                alert("Form Submitted Successfully! Thank you for your message.");
+            })
+            .catch(function (error) {
+                console.log('FAILED...', error);
+                console.log('Error details:', error);
+                alert("Form Submission Failed! Please check console for details or try again later.");
+            })
+            .finally(function() {
+                // Restore tombol submit
+                submitBtn.prop('disabled', false).html(originalHtml);
+            });
+    });
+    
 
 document.addEventListener('visibilitychange',
     function () {
