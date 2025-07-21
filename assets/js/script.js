@@ -56,7 +56,7 @@ $(document).ready(function () {
         submitBtn.prop('disabled', true).html('Sending... <i class="fa fa-spinner fa-spin"></i>');
         
         // Kirim form menggunakan EmailJS
-        emailjs.sendForm(' service_mt9b1by', 'template_contact', this)
+        emailjs.sendForm('service_mt9b1by', 'template_contact', this)
             .then(function (response) {
                 console.log('SUCCESS!', response.status, response.text);
                 document.getElementById("contact-form").reset();
