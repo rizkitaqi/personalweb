@@ -1240,7 +1240,7 @@ form .button-area {
 /* theme toggler ends */
 
 /* dark mode starts */
-.dark-mode {
+.dark-mode body {
   background: #1a1a1a;
   color: #fff;
 }
@@ -1302,5 +1302,8 @@ form .button-area {
 }
 .dark-mode .footer {
   background: #2c2c2c;
+}
+.dark-mode .heading {
+    color: #fff;
 }
 /* dark mode ends */
