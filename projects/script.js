@@ -48,7 +48,7 @@ function showProjects(projects) {
 
     projects.forEach((project, i) => {
         projectsHTML += `
-        <div class="slide fade">
+        <div class="slide">
             <img draggable="false" src="/assets/images/projects/${project.image}.png" alt="project" />
             <div class="slide-content">
                 <h3>${project.name}</h3>
@@ -59,7 +59,7 @@ function showProjects(projects) {
                 </div>
             </div>
         </div>`
-        dotsHTML += `<span class="dot" onclick="currentSlide(${i + 1})"></span>`
+        dotsHTML += `<span class="dot" onclick="currentSlide(${i})"></span>`
     });
 
     slideshowContainer.innerHTML = projectsHTML;
@@ -68,38 +68,78 @@ function showProjects(projects) {
     showSlides(slideIndex);
 }
 
-let slideIndex = 1;
+let slideIndex = 0;
+
+function showSlides(n) {
+  let slides = document.getElementsByClassName("slide");
+  let dots = document.getElementsByClassName("dot");
+  slideIndex = (n + slides.length) % slides.length; // Loop through slides
+
+  for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+
+  slides[slideIndex].style.display = "block";  
+  dots[slideIndex].className += " active";
+}
 
 // Next/previous controls
 function plusSlides(n) {
-  showSlides(slideIndex += n);
+  showSlides(slideIndex + n);
 }
 
 // Thumbnail image controls
 function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("slide");
-  let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";  
-  }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
+  showSlides(n);
 }
 
 getProjects().then(data => {
     showProjects(data);
 })
 // fetch projects end
+
+// Keyboard navigation
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowLeft') {
+        plusSlides(-1);
+    } else if (e.key === 'ArrowRight') {
+        plusSlides(1);
+    }
+});
+
+// Swipe navigation
+let touchstartX = 0;
+let touchendX = 0;
+
+const slider = document.querySelector('.slideshow-container');
+
+function handleGesture() {
+    if (touchendX < touchstartX) {
+        plusSlides(1);
+    }
+    if (touchendX > touchstartX) {
+        plusSlides(-1);
+    }
+}
+
+slider.addEventListener('touchstart', e => {
+    touchstartX = e.changedTouches[0].screenX;
+});
+
+slider.addEventListener('touchend', e => {
+    touchendX = e.changedTouches[0].screenX;
+    handleGesture();
+});
+
+
+document.querySelector('.prev').addEventListener('click', () => {
+    plusSlides(-1);
+});
+
+document.querySelector('.next').addEventListener('click', () => {
+    plusSlides(1);
+});
 
 // Start of Tawk.to Live Chat
 var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
@@ -131,11 +171,3 @@ document.onkeydown = function (e) {
         return false;
     }
 }
-
-document.querySelector('.prev').addEventListener('click', () => {
-    plusSlides(-1);
-});
-
-document.querySelector('.next').addEventListener('click', () => {
-    plusSlides(1);
-});
