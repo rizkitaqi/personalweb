@@ -1240,70 +1240,73 @@ form .button-area {
 /* theme toggler ends */
 
 /* dark mode starts */
-.dark-mode body {
-  background: #1a1a1a;
-  color: #fff;
+.dark-mode {
+  --bg-color: #1a1a1a;
+  --text-color: #fff;
+  --header-bg: #2c2c2c;
+  --box-bg: #333;
+  --heading-color: #fff;
+  --p-color: #ccc;
+  --tag-color: #ffae00;
 }
+
+body.dark-mode {
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
 .dark-mode header {
-  background: #2c2c2c;
+  background: var(--header-bg);
 }
-.dark-mode header .logo {
-  color: #fff;
-}
+
+.dark-mode header .logo,
 .dark-mode header .navbar ul li a {
-  color: #fff;
+  color: var(--text-color);
 }
-.dark-mode .home .content h2 {
-  color: #fff;
-}
+
+.dark-mode .home .content h2,
 .dark-mode .home .content p {
-  color: #fff;
+  color: var(--text-color);
 }
-.dark-mode .about {
-  background: #2c2c2c;
+
+.dark-mode .about,
+.dark-mode .skills,
+.dark-mode .education,
+.dark-mode .work,
+.dark-mode .contact,
+.dark-mode .footer {
+  background: var(--header-bg);
 }
-.dark-mode .about .row .content h3 {
-  color: #fff;
-}
-.dark-mode .about .row .content .tag {
-  color: #ffae00;
-}
-.dark-mode .about .row .content p {
-  color: #ccc;
-}
-.dark-mode .skills {
-  background: #2c2c2c;
-}
-.dark-mode .education {
-  background: #2c2c2c;
-}
-.dark-mode .education .box-container .box {
-  background: #333;
-}
+
+.dark-mode .about .row .content h3,
 .dark-mode .education .box-container .box .content h3 {
-  color: #fff;
+  color: var(--text-color);
 }
+
+.dark-mode .about .row .content .tag {
+  color: var(--tag-color);
+}
+
+.dark-mode .about .row .content p,
 .dark-mode .education .box-container .box .content p {
-  color: #ccc;
+  color: var(--p-color);
 }
-.dark-mode .work {
-  background: #2c2c2c;
+
+.dark-mode .education .box-container .box {
+  background: var(--box-bg);
 }
-.dark-mode .contact {
-  background: #2c2c2c;
-}
+
 .dark-mode .contact .container {
-  background: #333;
+  background: var(--box-bg);
 }
+
 .dark-mode .contact .container .content form .field input,
 .dark-mode .contact .container .content form .message textarea {
-  background: #2c2c2c;
-  color: #fff;
+  background: var(--header-bg);
+  color: var(--text-color);
 }
-.dark-mode .footer {
-  background: #2c2c2c;
-}
+
 .dark-mode .heading {
-    color: #fff;
+  color: var(--heading-color);
 }
 /* dark mode ends */

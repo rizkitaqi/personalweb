@@ -11,7 +11,9 @@ particlesJS.load('particles-js', 'particles.json', function() {
 
 /* Otherwise just put the config content (json): */
 
-const particlesConfig = {
+particlesJS('particles-js',
+  
+  {
     "particles": {
       "number": {
         "value": 80,
@@ -128,24 +130,4 @@ const particlesConfig = {
     }
   }
 
-  function updateParticlesColor(isDarkMode) {
-    if (isDarkMode) {
-        particlesConfig.particles.color.value = "#ffffff";
-        particlesConfig.particles.line_linked.color = "#ffffff";
-    } else {
-        particlesConfig.particles.color.value = "#000000";
-        particlesConfig.particles.line_linked.color = "#000000";
-    }
-    particlesJS('particles-js', particlesConfig);
-}
-
-// Initial call based on theme
-updateParticlesColor(document.body.classList.contains('dark-mode'));
-
-// Update on theme toggle
-const themeToggler = document.getElementById('theme-toggler');
-if (themeToggler) {
-    themeToggler.addEventListener('click', () => {
-        updateParticlesColor(document.body.classList.contains('dark-mode'));
-    });
-}
+);
