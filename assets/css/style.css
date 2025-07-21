@@ -1223,3 +1223,84 @@ form .button-area {
   top: calc(100% - 12rem);
 }
 /* scroll top ends */
+
+/* theme toggler starts */
+#theme-toggler {
+  position: fixed;
+  top: 1.5rem;
+  right: 2rem;
+  z-index: 1000;
+  cursor: pointer;
+  font-size: 2.5rem;
+  color: #333;
+}
+#theme-toggler:hover {
+    color: #ffae00;
+}
+/* theme toggler ends */
+
+/* dark mode starts */
+.dark-mode {
+  background: #1a1a1a;
+  color: #fff;
+}
+.dark-mode header {
+  background: #2c2c2c;
+}
+.dark-mode header .logo {
+  color: #fff;
+}
+.dark-mode header .navbar ul li a {
+  color: #fff;
+}
+.dark-mode .home .content h2 {
+  color: #fff;
+}
+.dark-mode .home .content p {
+  color: #fff;
+}
+.dark-mode .about {
+  background: #2c2c2c;
+}
+.dark-mode .about .row .content h3 {
+  color: #fff;
+}
+.dark-mode .about .row .content .tag {
+  color: #ffae00;
+}
+.dark-mode .about .row .content p {
+  color: #ccc;
+}
+.dark-mode .skills {
+  background: #2c2c2c;
+}
+.dark-mode .education {
+  background: #2c2c2c;
+}
+.dark-mode .education .box-container .box {
+  background: #333;
+}
+.dark-mode .education .box-container .box .content h3 {
+  color: #fff;
+}
+.dark-mode .education .box-container .box .content p {
+  color: #ccc;
+}
+.dark-mode .work {
+  background: #2c2c2c;
+}
+.dark-mode .contact {
+  background: #2c2c2c;
+}
+.dark-mode .contact .container {
+  background: #333;
+}
+.dark-mode .contact .container .content form .field input,
+.dark-mode .contact .container .content form .message textarea {
+  background: #2c2c2c;
+  color: #fff;
+}
+.dark-mode .footer {
+  background: #2c2c2c;
+}
+/* dark mode ends */

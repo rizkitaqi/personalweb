@@ -5,6 +5,26 @@ $(document).ready(function () {
         $('.navbar').toggleClass('nav-toggle');
     });
 
+    $('#theme-toggler').click(function(){
+        $(this).toggleClass('fa-sun');
+        $('body').toggleClass('dark-mode');
+        // save theme preference
+        if($('body').hasClass('dark-mode')){
+            localStorage.setItem('theme', 'dark');
+        }else{
+            localStorage.setItem('theme', 'light');
+        }
+    });
+
+    // load theme preference
+    function loadTheme(){
+        if(localStorage.getItem('theme') == 'dark'){
+            $('body').addClass('dark-mode');
+            $('#theme-toggler').addClass('fa-sun');
+        }
+    }
+    loadTheme();
+
     $(window).on('scroll load', function () {
         $('#menu').removeClass('fa-times');
         $('.navbar').removeClass('nav-toggle');
@@ -37,15 +57,9 @@ $(document).ready(function () {
         }, 500, 'linear')
     });
 
-
-    
-    });
     // <!-- emailjs to mail contact form data -->
+    emailjs.init("XnwDu7UpjifsgM4W0");
 
-    $(document).ready(function() {
-        emailjs.init("XnwDu7UpjifsgM4W0");
-    });
-    
     $("#contact-form").submit(function (event) {
         // Prevent default form submission pertama kali
         event.preventDefault();
@@ -72,7 +86,7 @@ $(document).ready(function () {
                 submitBtn.prop('disabled', false).html(originalHtml);
             });
     });
-    
+});
 
 document.addEventListener('visibilitychange',
     function () {
