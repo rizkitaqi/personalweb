@@ -9,7 +9,9 @@
       "code": "https://github.com/rizkitaqi/fitture"
     }
   },
+  
   {
+ 
     "name": "Daily Random Tarot",
     "desc": "The Daily Random Tarot is a fun and absurd web project I created to explore creative front-end development while expressing humor and modern internet culture. The concept: a daily tarot card that delivers random Gen Z-style wisdom",
     "image": "Tarot",
@@ -17,14 +19,17 @@
     "links": {
       "view": "https://tarotrandom.netlify.app/",
       "code": "#"
-        {
+  }
+},
+{
     "name": "Touchless Control",
     "desc": "Touchless Cursor is an innovative technology that lets users control the cursor through hand or finger movements in the air, without physical contact. It offers a hygienic, practical, and futuristic interaction experience.",
     "image": "cursor",
     "category": "basicweb",
     "links": {
-      
+      "code" : "https://github.com/rizkitaqi/touchless-control"
     }
-  }
+    }
+ 
 
 ]
