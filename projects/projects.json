@@ -17,6 +17,14 @@
     "links": {
       "view": "https://tarotrandom.netlify.app/",
       "code": "#"
+        {
+    "name": "Touchless Control",
+    "desc": "Touchless Cursor is an innovative technology that lets users control the cursor through hand or finger movements in the air, without physical contact. It offers a hygienic, practical, and futuristic interaction experience.",
+    "image": "cursor",
+    "category": "basicweb",
+    "links": {
+      
     }
   }
+
 ]
